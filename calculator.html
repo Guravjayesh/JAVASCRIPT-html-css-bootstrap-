@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+            .calculator {
+            width: 400px;
+            height: auto;
+            margin: 100px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .display {
+            width: 90%;
+            height: 50px;
+            background: #eee;
+            text-align: right;
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .buttons {
+            width: 100%;
+            margin-top: 10px;
+        }
+        .button {
+            width: 20%;
+            height: 50px;
+            margin: 1%;
+            background: #f0f0f0;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .clear {
+            margin-top: 10px;
+            background: red;
+            color: black;
+            width: 90%;
+            height: 50px;
+        }
+        h2 {
+            text-align: center;
+            color:#2f54da;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>CALCULATOR</h2>
+        <input type="text" class="display" id="display" readonly>
+        <div class="buttons">
+            <button class="button"; onclick="appendToDisplay('1'); console.log(document.getElementById('display').value += value)">1</button>
+            <button class="button" onclick="appendToDisplay('2'); console.log(document.getElementById('display').value += value)">2</button>
+            <button class="button" onclick="appendToDisplay('3')">3</button>
+            <button class="button" onclick="appendToDisplay('+')">+</button>
+            <button class="button" onclick="appendToDisplay('4')">4</button>
+            <button class="button" onclick="appendToDisplay('5')">5</button>
+            <button class="button" onclick="appendToDisplay('6')">6</button>
+            <button class="button" onclick="appendToDisplay('-')">-</button>
+            <button class="button" onclick="appendToDisplay('7')">7</button>
+            <button class="button" onclick="appendToDisplay('8')">8</button>
+            <button class="button" onclick="appendToDisplay('9')">9</button>
+            <button class="button" onclick="appendToDisplay('*')">*</button>
+            <button class="button" onclick="appendToDisplay('/')">/</button>
+            <button class="button" onclick="appendToDisplay('0')">0</button>
+            <button class="button" onclick="appendToDisplay('.')">.</button>
+            
+            
+            <button class="button" onclick="calculateResult()">=</button>
+            <button class="button clear" onclick="clearDisplay()">Clear All</button>
+        </div>
+    </div>
+
+    <script>
+        function appendToDisplay(value) {
+            document.getElementById('display').value += value;
+        }
+
+        function calculateResult() {
+            try {
+                let result = eval(document.getElementById('display').value);
+                document.getElementById('display').value = result;
+            } catch (error) {
+                
+                alert("The calculator isn't wrong, but the person using it can be");
+                document.getElementById('display').value = '';
+            }
+        }
+
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+    </script>
+</body>
+</html>
